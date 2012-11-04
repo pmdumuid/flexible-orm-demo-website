@@ -1,12 +1,15 @@
 <?php
 namespace FlexibleORMDemoWebsite\Controllers;
-use ORM\Controller\BaseController;
+
+use DumuidPhotoSort\Controllers\ExtendedBaseController;
+
 /**
- * Description of DefaultController
+ * This is a default controller.  It is called for the URLs that do not have a controller assigned,
+ * or a URL that has nothing but the hostname (i.e. http://www.example.com/ ).
  *
  * @author pmdumuid
  */
-class DefaultController extends BaseController {
+class DefaultController extends ExtendedBaseController {
 
     /**
      * The main action.

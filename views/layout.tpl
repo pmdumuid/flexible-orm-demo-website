@@ -9,7 +9,7 @@
   <body>
     <div id="container">
       <div id="header">
-        <h1>Flexible ORM Demo Website</h1>
+        <h1>{$header}</h1>
       </div>
       <div class="actionContent">
 {$action_content}
