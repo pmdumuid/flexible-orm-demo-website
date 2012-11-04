@@ -86,8 +86,13 @@ class Router {
     }
 
     public function resolveControllerClassNameAlternative($controllerName) {
+        if ($controllerName === '') {
+            return __NAMESPACE__.'\DefaultController';
+        }
         // Convert dash-seperated-urls to CapsFirstCamelCase.
-        return __NAMESPACE__.'\\'.preg_replace("/-([a-zA-Z0-9])/ge", "strtoupper('\\1')", $controllerName);
+        $className = preg_replace("/-([a-zA-Z0-9])/e", "strtoupper('\\1')", $controllerName);
+        $className[0] = strtoupper($className[0]);
+        return __NAMESPACE__.'\\'.$className."Controller";
     }
 
 }
