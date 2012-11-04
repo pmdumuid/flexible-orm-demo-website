@@ -1,0 +1,18 @@
+<IfModule mod_rewrite.c>
+RewriteEngine on
+
+# If the requested URL is requesting a file that exists, then skip the subsequent 3 re-write rules.
+# Where the subsequent rules operate as follows:
+#   http://your.website/foo/bar/     is re-written to index.php?controller=foo&action=bar
+#   http://your.website/foo/bar/123  is re-written to index.php?controller=foo&action=bar&id=123
+#   http://your.website/foo/         is re-written to index.php?controller=foo
+#
+# (trailing slashes are optional as per the expression, '/?'
+
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule .? - [S=3]
+RewriteRule ^([^/]*)/([^/]*)/?$             /index.php?controller=$1&action=$2&%{QUERY_STRING} [L]
+RewriteRule ^([^/]*)/([^/]*)/(\d+)          /index.php?controller=$1&action=$2&id=$3&%{QUERY_STRING} [L]
+RewriteRule ^([^/]*)/?$                     /index.php?controller=$1&%{QUERY_STRING} [L]
+
+</IfModule>

@@ -1,0 +1,27 @@
+<VirtualHost *:80>
+    ServerName flexible-orm-demo-website.local
+
+    ServerAdmin web-admin@flexible-orm-demo-website.localhost
+    DocumentRoot /sites/server/projects/flexible-orm-demo-website/public
+
+    DirectoryIndex index.php
+
+    ErrorLog /var/log/apache2/errors.flexible-orm-demo-website.log
+    CustomLog  /var/log/apache2/access.flexible-orm-demo-website.log combined
+
+# The following apache modules need to be globally enabled.
+##    include mods-available/rewrite.load
+##    include mods-available/php5.load
+##    include mods-available/alias.load
+##    include mods-available/suho-minify.conf
+##    include mods-available/headers.load
+##    include mods-available/expires.load
+    <Directory /sites/server/projects/flexible-orm-demo-website/public>
+        SetEnv      SITE_CONFIG        "site-config-demo-local.ini"
+        php_value   date.timezone "Australia/Adelaide"
+
+        Order allow,deny
+        Allow from all
+        AllowOverride All
+    </Directory>
+</VirtualHost>
