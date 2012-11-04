@@ -5,6 +5,9 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <link rel="icon" href="/favicon.ico" type="image/vnd.microsoft.icon" />
     <script src="/minify/general.js" type="text/javascript" charset="utf-8"></script>
+
+    <link rel="stylesheet" href="/minify/general.css" type="text/css" media="all" />
+
   </head>
   <body>
     <div id="container">
