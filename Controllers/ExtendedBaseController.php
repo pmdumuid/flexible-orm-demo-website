@@ -1,5 +1,5 @@
 <?php
-namespace DumuidPhotoSort\Controllers;
+namespace FlexibleORMDemoWebsite\Controllers;
 use ORM\Controller\BaseController;
 /**
  * Description of DefaultController
@@ -7,5 +7,5 @@ use ORM\Controller\BaseController;
  * @author pmdumuid
  */
 class ExtendedBaseController extends BaseController {
-    public $header = "Slide sorter";
+    public $header = "Demostration Flexible ORM Website";
 }

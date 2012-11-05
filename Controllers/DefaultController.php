@@ -1,7 +1,7 @@
 <?php
 namespace FlexibleORMDemoWebsite\Controllers;
 
-use DumuidPhotoSort\Controllers\ExtendedBaseController;
+use FlexibleORMDemoWebsite\Controllers\ExtendedBaseController;
 
 /**
  * This is a default controller.  It is called for the URLs that do not have a controller assigned,
