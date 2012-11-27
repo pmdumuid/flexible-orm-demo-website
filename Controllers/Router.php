@@ -23,6 +23,13 @@ class Router {
     private $_request;
 
     /**
+     * The smarty template system.
+     *
+     * @var \ORM\Controller\SmartyTemplate
+     */
+    private $_smarty;
+
+    /**
      * An array of controller names and the corresponding Controller Class used to process the action.
      *
      * @var type
@@ -48,7 +55,7 @@ class Router {
         if (!class_exists($controllerClassName)) {
             throw new Exception("Could not find the controller, `$controllerClassName`.");
         }
-        $controller = new $controllerClassName($this->_request, $this->smarty);
+        $controller = new $controllerClassName($this->_request, $this->_smarty);
 
         // Output the result
         try {
@@ -67,10 +74,10 @@ class Router {
      */
     public function loadSmarty() {
         // Setup Smarty
-        $this->smarty = new SmartyTemplate();
-        $this->smarty->template_dir = __DIR__.'/../views/';
-        $this->smarty->compile_dir  = '/tmp/templates_c';
-        $this->smarty->registered_classes['ORM_Utilities_Configuration'] = '\ORM\Utilities\Configuration';
+        $this->_smarty = new SmartyTemplate();
+        $this->_smarty->template_dir = __DIR__.'/../views/';
+        $this->_smarty->compile_dir  = '/tmp/templates_c';
+        $this->_smarty->registered_classes['ORM_Utilities_Configuration'] = '\ORM\Utilities\Configuration';
     }
 
     /**
