@@ -6,13 +6,13 @@
  * @file
  * @author Pierre Dumuid <pierre.dumuid@sustainabilityhouse.com.au>
  *
+ * @note Normally namespaces are related to the directory path, however "Public" is a PHP reserved name, and thus cannot be used,
+ * thus the autoloader will not be able to automatically resolve this path!
+ *
  */
 
-// @note Normally namespaces are related to the directory path, however
-// "Public" is a PHP reserved name, and thus cannot be used.
-
-// The autoloader will not be able to automatically resolve this path!
 namespace FlexibleORMDemoWebsite\PublicContent;
+
 use FlexibleORMDemoWebsite\Controllers\Router;
 use Exception;
 
