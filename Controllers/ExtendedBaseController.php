@@ -8,4 +8,5 @@ use ORM\Controller\BaseController;
  */
 class ExtendedBaseController extends BaseController {
     public $header = "Demostration Flexible ORM Website";
+
 }

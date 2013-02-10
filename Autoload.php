@@ -30,7 +30,7 @@ class Autoload {
 
         // Set PHP Package locations within the Autoloader based on the [packages] section in the site-config-???.ini file.
         // Declare that any fully qualified class beginning with 'FlexibleORMDemoWebsite\' should be found in this directory.
-        $a = array_merge(array('FlexibleORMDemoWebsite' => __DIR__),Configuration::packages()->toArray());
+        $a = array_merge(array('FlexibleORMDemoWebsite' => __DIR__), Configuration::packages()->toArray());
         $flexibleORMAutoloader->setPackageLocations($a);
 
         if (php_sapi_name() !== 'cli') {

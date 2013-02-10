@@ -10,13 +10,11 @@ use FlexibleORMDemoWebsite\Controllers\ExtendedBaseController;
  * @author pmdumuid
  */
 class DefaultController extends ExtendedBaseController {
-
     /**
      * The main action.
      */
     public function index() {
 
     }
-
 
 }
