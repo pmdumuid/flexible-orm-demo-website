@@ -24,14 +24,17 @@ class Autoload {
         $flexibleORMAutoloader = new AutoLoader();
         $flexibleORMAutoloader->register();
 
+        // Include the packages locations for this project's name-space to enable the exception class to be found.
+        // by declaring that any fully qualified class beginning with 'RoboraterAuditing\' should be found in this directory.
+        $packageLocations = array_merge($flexibleORMAutoloader->getPackageLocations(), array('FlexibleORMDemoWebsite' => __DIR__));
+        $flexibleORMAutoloader->setPackageLocations($packageLocations);
+
         // Read in configurations from the site-config-???.ini file.
         $siteConfigFilename = self::GetSiteConfigFilename();
         Configuration::Load($siteConfigFilename);
 
         // Set PHP Package locations within the Autoloader based on the [packages] section in the site-config-???.ini file.
-        // Declare that any fully qualified class beginning with 'FlexibleORMDemoWebsite\' should be found in this directory.
-        $a = array_merge(array('FlexibleORMDemoWebsite' => __DIR__), Configuration::packages()->toArray());
-        $flexibleORMAutoloader->setPackageLocations($a);
+        $flexibleORMAutoloader->setPackageLocations(array_merge($packageLocations, Configuration::packages()->toArray()));
 
         if (php_sapi_name() !== 'cli') {
             error_reporting(E_ALL);
